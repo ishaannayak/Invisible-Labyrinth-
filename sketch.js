@@ -22,7 +22,7 @@ hunterAnimation = loadAnimation("Images/h1.png","Images/h2.png","Images/h3.png")
 diamondImg = loadImage("Images/diamond.png")
 fireImg = loadImage("Images/fire.png")
 fireSound = loadSound("fireSound.wav")
-introImg = loadImage("Images/intro.png")
+introImg = loadImage("Images/Intro.png")
 congrats = loadImage("Images/congrats.png")
 }
 function setup(){
