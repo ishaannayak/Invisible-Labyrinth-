@@ -4,7 +4,7 @@ var hunterAnimation
 var player
 var caveWallsGroup, desertWallGroup, seaWallGroup, fireGroup
 var diamondImg
-var gameState = 3
+var gameState = 0
 var fireImg
 var desertFlag = false
 var oceanFlag = false
