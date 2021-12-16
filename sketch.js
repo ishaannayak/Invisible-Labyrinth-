@@ -4,16 +4,15 @@ var hunterAnimation
 var player
 var caveWallsGroup, desertWallGroup, seaWallGroup, fireGroup
 var diamondImg
-var gameState = 1
+var gameState = 3
 var fireImg
 var desertFlag = false
 var oceanFlag = false
 var fireSound
 var introImg
 var congrats
-// var currX = 0; 
-// var currY = 0;
-// var currZ = -10;
+var bgSound
+
 function preload(){
 caveImg = loadImage("Images/CAVEIMAGE.jpg")
 desertImg = loadImage("Images/desertimage.jpg")
@@ -24,6 +23,7 @@ fireImg = loadImage("Images/fire.png")
 fireSound = loadSound("fireSound.wav")
 introImg = loadImage("Images/Intro.png")
 congrats = loadImage("Images/congrats.png")
+bgSound = loadSound("BgSound.mp3")
 }
 function setup(){
     createCanvas(1920,920)
@@ -36,9 +36,7 @@ function setup(){
     desertWallGroup = new Group()
     seaWallGroup = new Group()
     fireGroup = new Group()
-//    currCamera = createCamera(); 
-//    currCamera.move(950, 450, 0)
-    
+
 }
 function draw(){
     if(gameState ===0){
@@ -50,10 +48,17 @@ function draw(){
     else if(gameState ===1){
         background(caveImg)
         cave.display()
-   
+        bgSound.loop()
+        bgSound.setVolume(0.1)
+
         drawSprites()
         player.handlePlayer()
 
+        if(player.player.isTouching(fireGroup)){
+            fireSound.play()
+            player.player.x = 20
+            player.player.y = 500 
+        }
         player.player.bounceOff(caveWallsGroup)
         if(player.player.isTouching(cave.diamond)){
         gameState = 2
@@ -65,12 +70,14 @@ function draw(){
     else if(gameState ===2){
         background(desertImg)
         desert.display()
-        
+        bgSound.loop()
+        bgSound.setVolume(0.1)
+
         drawSprites()
         caveWallsGroup.destroyEach()
-        cave.diamond.visible = false 
+        //cave.diamond.visible = false 
         if(!desertFlag){
-            player.player.x = 70
+            player.player.x = 100
             player.player.y = 530  
             desertFlag = true
             
@@ -81,14 +88,26 @@ function draw(){
             console.log("hello")
             }
 
+            
+
         player.handlePlayer()
+        if(player.player.isTouching(fireGroup)){
+                fireSound.play()
+                player.player.x = 100
+                player.player.y = 530  
+            }
 
     }
     else if(gameState ===3){
+
         background(seaImg)
+        player.player.debug = true
+        player.player.setCollider("circle",0,0,70)
         ocean.display()
         drawSprites()
-        
+        bgSound.loop()
+        bgSound.setVolume(0.1)
+
         desertWallGroup.destroyEach()
         if(!oceanFlag){
             player.player.x = 20
@@ -102,6 +121,8 @@ function draw(){
             console.log("hello")
             }
             player.handlePlayer()
+            bgSound.loop()
+            bgSound.setVolume(0.1)
 
             if(player.player.isTouching(seaWallGroup)){
                 player.player.x = 20
@@ -117,10 +138,7 @@ function draw(){
 background(congrats)
 
     }
-//     currCamera.move(currX, currY, currZ)
-//    currX -=0.1; 
-//     currY -=0.1; 
-//     currZ -=.01;
+
     camera.position.x = player.player.x+800; camera.position.y = player.player.y;
 
 }

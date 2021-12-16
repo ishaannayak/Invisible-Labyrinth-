@@ -47,6 +47,7 @@ class Ocean {
         this.fire = null
         this.fire1 = null
         this.fire2 = null
+        this.fire3 = null
     }
 
     display(){
@@ -55,7 +56,7 @@ class Ocean {
       this.wall1.shapeColor = "black"
       seaWallGroup.add(this.wall1)
 
-      this.wall2 = createSprite(100,715,15,420)
+      this.wall2 = createSprite(100,795,15,300)
       this.wall2.shapeColor = "black"
       seaWallGroup.add(this.wall2)
       
@@ -241,20 +242,25 @@ class Ocean {
        this.diamond.addImage(diamondImg)
        this.diamond.scale = 0.095
 
-       this.fire = createSprite(1880,850,40,40)
+       this.fire = createSprite(1880,950,40,40)
        this.fire.addImage(fireImg)
        this.fire.scale = 0.15
        fireGroup.add(this.fire)
 
-       this.fire1 = createSprite(1850,850,40,40)
+       this.fire1 = createSprite(1850,950,40,40)
        this.fire1.addImage(fireImg)
        this.fire1.scale = 0.15
        fireGroup.add(this.fire1)
 
-       this.fire2 = createSprite(300,780,40,40)
+       this.fire2 = createSprite(1600,840,40,40)
        this.fire2.addImage(fireImg)
        this.fire2.scale = 0.15
        fireGroup.add(this.fire2)
+       
+       this.fire3 = createSprite(150,840,40,40)
+       this.fire3.addImage(fireImg)
+       this.fire3.scale = 0.15
+       fireGroup.add(this.fire3)
        
       
       

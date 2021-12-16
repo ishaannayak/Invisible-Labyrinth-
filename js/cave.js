@@ -215,10 +215,10 @@ class Cave {
         this.fire.scale = 0.15
         fireGroup.add(this.fire)
 
-        this.fire = createSprite(1300,350,40,40)
-        this.fire.addImage(fireImg)
-        this.fire.scale = 0.15
-        fireGroup.add(this.fire)
+        this.fire1 = createSprite(1300,350,40,40)
+        this.fire1.addImage(fireImg)
+        this.fire1.scale = 0.15
+        fireGroup.add(this.fire1)
 
    }
 }

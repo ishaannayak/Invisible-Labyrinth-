@@ -43,6 +43,8 @@ class Desert {
         this.wall41 = null
         this.wall42 = null
         this.diamond = null
+        this.fire = null
+        this.fire1 = null
     }
     display(){
         this.wall1 = createSprite(950,50,1800,15);
@@ -216,6 +218,17 @@ class Desert {
         this.diamond = createSprite(1850,770,40,40)
         this.diamond.addImage(diamondImg)
         this.diamond.scale = 0.095
+       
+        this.fire = createSprite(940,530,40,40)
+        this.fire.addImage(fireImg)
+        this.fire.scale = 0.15
+        fireGroup.add(this.fire)
+
+        this.fire1 = createSprite(440,600,40,40)
+        this.fire1.addImage(fireImg)
+        this.fire1.scale = 0.15
+        fireGroup.add(this.fire1)
+
 
    }
 }

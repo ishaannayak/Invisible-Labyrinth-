@@ -16,38 +16,38 @@ handlePlayer(){
     }
 
     if(keyWentDown(LEFT_ARROW)){
-        this.player.x =     this.player.x-30
+        this.player.x =     this.player.x-20
 
     }
 
     if(keyWentDown(DOWN_ARROW)){
-        this.player.y =     this.player.y+30
+        this.player.y =     this.player.y+20
 
     }
 
     if(keyWentDown(UP_ARROW)){
-        this.player.y =     this.player.y-30
+        this.player.y =     this.player.y-20
 
     }
 
 
     if(keyDown(RIGHT_ARROW)){
-        this.player.x =     this.player.x+30
+        this.player.x =     this.player.x+20
 
     }
 
     if(keyDown(LEFT_ARROW)){
-        this.player.x =     this.player.x-30
+        this.player.x =     this.player.x-20
 
     }
 
     if(keyDown(DOWN_ARROW)){
-        this.player.y =     this.player.y+30
+        this.player.y =     this.player.y+20
 
     }
 
     if(keyDown(UP_ARROW)){
-        this.player.y =     this.player.y-30
+        this.player.y =     this.player.y-20
 
     }
 }
