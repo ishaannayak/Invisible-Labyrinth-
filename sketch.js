@@ -35,10 +35,14 @@ function setup(){
     caveWallsGroup = new Group()
     desertWallGroup = new Group()
     seaWallGroup = new Group()
-    fireGroup = new Group()
+    seaFireGroup = new Group()
+    caveFireGroup = new Group()
+    desertFireGroup = new Group()
+    
 
 }
 function draw(){
+    
     if(gameState ===0){
         background(introImg)
         if(keyDown( "space")){
@@ -48,13 +52,12 @@ function draw(){
     else if(gameState ===1){
         background(caveImg)
         cave.display()
-        bgSound.loop()
-        bgSound.setVolume(0.1)
+    
 
         drawSprites()
         player.handlePlayer()
 
-        if(player.player.isTouching(fireGroup)){
+        if(player.player.isTouching(caveFireGroup)){
             fireSound.play()
             player.player.x = 20
             player.player.y = 500 
@@ -70,12 +73,13 @@ function draw(){
     else if(gameState ===2){
         background(desertImg)
         desert.display()
-        bgSound.loop()
-        bgSound.setVolume(0.1)
+      
 
         drawSprites()
         caveWallsGroup.destroyEach()
-        //cave.diamond.visible = false 
+        caveFireGroup.destroyEach()
+       
+        cave.diamond.visible = false 
         if(!desertFlag){
             player.player.x = 100
             player.player.y = 530  
@@ -91,7 +95,7 @@ function draw(){
             
 
         player.handlePlayer()
-        if(player.player.isTouching(fireGroup)){
+        if(player.player.isTouching(desertFireGroup)){
                 fireSound.play()
                 player.player.x = 100
                 player.player.y = 530  
@@ -105,10 +109,10 @@ function draw(){
         player.player.setCollider("circle",0,0,70)
         ocean.display()
         drawSprites()
-        bgSound.loop()
-        bgSound.setVolume(0.1)
+     
 
         desertWallGroup.destroyEach()
+        desertFireGroup.destroyEach()
         if(!oceanFlag){
             player.player.x = 20
             player.player.y = 500  
@@ -128,7 +132,7 @@ function draw(){
                 player.player.x = 20
                 player.player.y = 500  
             }
-            if(player.player.isTouching(fireGroup)){
+            if(player.player.isTouching(seaFireGroup)){
                 fireSound.play()
                 player.player.x = 20
                 player.player.y = 500  
